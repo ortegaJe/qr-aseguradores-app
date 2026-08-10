@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [CanalesController::class, 'index'])->name('canales.index');
 Route::get('/qr', [CanalesController::class, 'qr']);
+
 Route::get('/aseguradores', [FiltroController::class, 'getAseguradores']);
 Route::get('/regionales', [FiltroController::class, 'getRegionalPorAseguradora']);
 Route::get('/ciudades', [FiltroController::class, 'getCiudadPorRegional']);

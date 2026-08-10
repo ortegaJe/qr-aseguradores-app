@@ -20,7 +20,11 @@ export const stepLayout = {
 
             titulo: "¿No encuentras tu asegurador?",
 
+            subtitulo: "Contáctanos aquí",
+
             evento: "ASEGURADOR_NO_ENCONTRADO",
+
+            url: "https://viva1a.com.co/lineas-de-atencion/",
         }
 
     },
@@ -35,7 +39,11 @@ export const stepLayout = {
 
             titulo: "¿No encuentras tu ciudad o municipio?",
 
+            subtitulo: "Contáctanos aquí",
+
             evento: "CIUDAD_NO_ENCONTRADA",
+
+            url: "https://viva1a.com.co/lineas-de-atencion/",
 
         }
 
@@ -95,12 +103,28 @@ function updateBack(show) {
 
 function updateHelp(config) {
 
-    const help = document.getElementById("helpBox");
+    const link = document.getElementById("helpBoxLink");
 
     const title = document.getElementById("helpBoxTitle");
 
-    help.parentElement.classList.toggle("d-none", !config.help);
+    const subtitle = document.getElementById("helpBoxSubtitle");
+
+    if (!config.help) {
+
+        link.classList.add("d-none");
+
+        return;
+
+    }
+
+    link.classList.remove("d-none");
 
     title.textContent = config.help.titulo;
+
+    subtitle.textContent = config.help.subtitulo;
+
+    link.href = config.help.url;
+
+    link.dataset.evento = config.help.evento;
 
 }
