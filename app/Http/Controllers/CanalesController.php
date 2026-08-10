@@ -20,10 +20,19 @@ class CanalesController extends Controller
 
     public function qr()
     {
-        $url = route('canales.index');
-        $qr = QrCode::size(200)->generate($url);
-        //Storage::put('public/images/qr/qr-nacional.png', $qr);
+        $rutaQr = 'images/qr/qr-nacional.svg';
 
-        return view('qr.index', compact('qr'));
+        if (!Storage::disk('public')->exists($rutaQr)) {
+
+            $url = route('canales.index');
+
+            $qr = QrCode::size(200)->generate($url);
+
+            Storage::disk('public')->put($rutaQr, $qr);
+        }
+
+        $qrUrl = Storage::disk('public')->url($rutaQr);
+
+        return view('qr.index', compact('qrUrl'));
     }
 }

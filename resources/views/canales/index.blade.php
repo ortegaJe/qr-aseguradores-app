@@ -103,6 +103,8 @@
 
         </div>
 
+        <!-- LOGO WIZARD -->
+
         <div class="logo-circle layout-logo d-none" data-logo="wizard">
 
             <img src="{{ Storage::url('images/logo-viva.png') }}" alt="logo-circle-viva-1a1">
@@ -185,15 +187,15 @@
 
                 <div class="social-icons">
 
-                    <a href="#">
+                    <a href="https://www.instagram.com/viva1aips/?hl=es" target="_blank">
                         <i class="bi bi-instagram"></i>
                     </a>
 
-                    <a href="#">
+                    <a href="https://www.facebook.com/p/VIVA-1A-IPS-100062864113799/?locale=es_LA" target="_blank">
                         <i class="bi bi-facebook"></i>
                     </a>
 
-                    <a href="#">
+                    <a href="https://x.com/viva1aips/with_replies" target="_blank">
                         <i class="bi bi-twitter-x"></i>
                     </a>
 
@@ -203,7 +205,9 @@
 
         </div>
 
-        <a href="https://viva1a.com.co/lineas-de-atencion/" target="_blank" class="help-box-link d-none">
+        <!-- HELP BOX -->
+
+        <a href="#" target="_blank" class="help-box-link d-none" id="helpBoxLink" data-evento="">
 
             <div class="help-box" id="helpBox">
 
@@ -212,7 +216,7 @@
                 <div>
                     <strong id="helpBoxTitle"></strong>
                     <br>
-                    Contáctanos aquí
+                    <span id="helpBoxSubtitle"></span>
                 </div>
 
             </div>

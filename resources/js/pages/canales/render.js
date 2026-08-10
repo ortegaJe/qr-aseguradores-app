@@ -46,6 +46,8 @@ document.addEventListener(
 async function init() {
 
     bindWelcome();
+
+    bindHelpBox();
     
     bindBackButton();
     
@@ -353,6 +355,23 @@ function bindCanales() {
 
             //window.open(btn.dataset.url, "_self");
         });
+    });
+}
+
+function bindHelpBox() {
+
+    const helpBoxLink = document.getElementById("helpBoxLink");
+    
+    helpBoxLink.addEventListener("click", async () => {
+
+        const evento = helpBoxLink.dataset.evento;
+
+        if (evento) {
+
+            await track(evento);
+
+        }
+
     });
 }
 
