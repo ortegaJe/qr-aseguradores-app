@@ -22,17 +22,18 @@ class CanalesController extends Controller
     {
         $rutaQr = 'images/qr/qr-nacional.svg';
 
-        if (!Storage::disk('public')->exists($rutaQr)) {
+        $url = route('canales.index');
 
-            $url = route('canales.index');
+        $qr = QrCode::size(200)->generate($url);
 
-            $qr = QrCode::size(200)->generate($url);
+        Storage::disk('public')->put($rutaQr, $qr);
 
-            Storage::disk('public')->put($rutaQr, $qr);
-        }
+        /* if (!Storage::disk('public')->exists($rutaQr)) {
+
+        } */
 
         $qrUrl = Storage::disk('public')->url($rutaQr);
 
-        return view('qr.index', compact('qrUrl'));
+        return view('qr.index', compact('qr'));
     }
 }

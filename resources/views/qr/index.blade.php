@@ -10,7 +10,7 @@
 
 <body class="container">
     <div class="container-mobile">
-        <img src="{{ $qrUrl }}" alt="Código QR Canales de Atención">
+        {!! $qr !!}
     </div>
 </body>
 
