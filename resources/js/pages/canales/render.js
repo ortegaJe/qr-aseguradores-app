@@ -275,10 +275,6 @@ function bindAseguradores() {
                 nombre: item.dataset.nombre,
             };
 
-            console.log("ASEGURADOR", sessionData);
-
-            await track("ASEGURADOR_SELECCIONADO");
-
             await executeWithLoader("Cargando...", async () => {
                 await cargarCiudades(sessionData.asegurador.id);
 
@@ -306,10 +302,6 @@ function bindCiudades() {
 
                 regional_nombre: item.dataset.regionalNombre,
             };
-
-            console.log("CIUDAD", sessionData);
-
-            await track("CIUDAD_SELECCIONADA");
 
             await executeWithLoader("Cargando...", async () => {
                 await cargarCanales(
@@ -346,8 +338,6 @@ function bindCanales() {
             };
 
             sessionData.fecha_fin = new Date();
-
-            console.log("CANAL", sessionData);
 
             await track(`CANAL_${btn.dataset.nombre}`);
 
@@ -397,8 +387,6 @@ async function track(evento) {
 
         fecha: new Date(),
     };
-
-    console.log("TRACKING", payload);
 
     try {
         await fetch("/tracking", {
@@ -453,7 +441,6 @@ async function registrarEvento() {
 
         const result = await response.json();
 
-        console.log(result);
     } catch (error) {
         console.error("Error registrando:", error);
     }
@@ -499,19 +486,22 @@ function informacion(sessionData) {
 }
 
 async function cargarCiudades(aseguradorId) {
-    const response = await fetch(`/ciudades?asegurador_id=${aseguradorId}`);
+
+    const response = await fetch(
+        `/ciudades?asegurador_id=${aseguradorId}`);
 
     if (!response.ok) {
 
-    const errorData = await response.json();
+        const errorData = await response.json();
 
-    throw new Error(
-        errorData.message || "Error al cargar ciudades"
-    );
+        throw new Error(
+            errorData.message || "Error al cargar ciudades"
+        );
 
-}
+    }
+
     const ciudades = await response.json();
-    //console.log(ciudades);
+
     renderCiudades(ciudades === null ? [] : ciudades);
 }
 
@@ -572,7 +562,7 @@ async function cargarCanales(
     }
 
     const canales = await response.json();
-    //console.log(canales);
+
     renderCanales(canales === null ? [] : canales);
 }
 
