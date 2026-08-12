@@ -1,4 +1,5 @@
 import { updateLayout } from "./layout.js";
+import { formatText } from "./text.js";
 
 /*
 |--------------------------------------------------------------------------
@@ -137,43 +138,6 @@ function bindBackButton() {
 
         goToStep(current - 1);
     });
-}
-
-// Función para capitalizar la primera letra de cada palabra y excluir ciertas palabras
-function capitalizeWords(text) {
-    if (!text) {
-        return "";
-    }
-
-    const exclude = [
-        "de",
-        "del",
-        "la",
-        "las",
-        "el",
-        "los",
-        "y",
-        "e",
-        "o",
-        "u",
-        "con",
-        "para",
-        "por",
-        "en",
-        "a",
-    ];
-
-    return text
-        .toLowerCase()
-        .split(" ")
-        .map((word, index) => {
-            if (index > 0 && exclude.includes(word)) {
-                return word;
-            }
-
-            return word.charAt(0).toUpperCase() + word.slice(1);
-        })
-        .join(" ");
 }
 
 /*
@@ -536,7 +500,7 @@ function renderCiudades(ciudades) {
                     <i class="bi bi-geo-alt"></i>
 
                     <span class="selection-name">
-                        ${item.nombre}
+                        ${formatText(item.nombre)}
                     </span>
 
                 </div>
@@ -583,7 +547,7 @@ function renderCanales(canales) {
     container.innerHTML = "";
 
     canales.forEach((item) => {
-        const nombre = capitalizeWords(item.nombre);
+        //const nombre = capitalizeWords(item.nombre);
 
         container.innerHTML += `
                 <a href="${item.url}" 
@@ -599,11 +563,11 @@ function renderCanales(canales) {
 
                     <div class="channel-content">
                         <div class="channel-title" style="color: ${item.color || "#20A65A"}">
-                            ${nombre}
+                            ${formatText(item.nombre)}
                         </div>
 
                         <div class="channel-subtitle">
-                            ${item.descripcion}
+                            ${formatText(item.descripcion)}
                         </div>
                     </div>
 
