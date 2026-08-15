@@ -22,7 +22,7 @@ export const sessionData = {
     ciudad: null,
 
     canal: null,
-    
+
     fecha_inicio: new Date(),
 
     fecha_fin: null,
@@ -36,8 +36,8 @@ export const sessionData = {
         */
 
 document.addEventListener(
-    "DOMContentLoaded", 
-    
+    "DOMContentLoaded",
+
     async () => {
 
         await init();
@@ -49,11 +49,11 @@ async function init() {
     bindWelcome();
 
     bindHelpBox();
-    
+
     bindBackButton();
-    
+
     bindCiudades();
-    
+
     bindCanales();
 
     track("QR_ESCANEADO");
@@ -87,7 +87,7 @@ function goToStep(step) {
 
 // Funciónes para mostrar y ocultar el loader
 function showLoader(text = "Cargando...") {
-    
+
     document.getElementById("loaderText").textContent = text;
 
     document.getElementById("stepLoader").classList.remove("d-none");
@@ -119,10 +119,9 @@ function bindBackButton() {
     const btnBack = document.getElementById("btnBack");
 
     const stepConfig = {
-        1: "bienvenida",
-        2: "asegurador",
-        3: "ciudad",
-        4: "canal",
+        1: "asegurador",
+        2: "ciudad",
+        3: "canal",
     };
 
     btnBack.addEventListener("click", () => {
@@ -189,7 +188,7 @@ async function cargarAseguradores() {
         );
 
     }
-    
+
     const aseguradores = await response.json();
 
     renderAseguradores(aseguradores);
@@ -239,6 +238,8 @@ function bindAseguradores() {
                 nombre: item.dataset.nombre,
             };
 
+            await track("ASEGURADOR_SELECCIONADO");
+
             await executeWithLoader("Cargando...", async () => {
                 await cargarCiudades(sessionData.asegurador.id);
 
@@ -266,6 +267,8 @@ function bindCiudades() {
 
                 regional_nombre: item.dataset.regionalNombre,
             };
+
+            await track("CIUDAD_SELECCIONADA");
 
             await executeWithLoader("Cargando...", async () => {
                 await cargarCanales(
@@ -315,7 +318,7 @@ function bindCanales() {
 function bindHelpBox() {
 
     const helpBoxLink = document.getElementById("helpBoxLink");
-    
+
     helpBoxLink.addEventListener("click", async () => {
 
         const evento = helpBoxLink.dataset.evento;
@@ -515,7 +518,7 @@ async function cargarCanales(
         `/canales?ciudad_id=${ciudadId}&asegurador_id=${aseguradorId}`,
     );
 
-        if (!response.ok) {
+    if (!response.ok) {
 
         const errorData = await response.json();
 
