@@ -134,7 +134,7 @@
             <div class="step-header">
 
                 <h1 class="step-title">
-                    Selecciona tu ciudad o municipio
+                    Selecciona tu ubicación
                 </h1>
 
                 <p class="step-description">
