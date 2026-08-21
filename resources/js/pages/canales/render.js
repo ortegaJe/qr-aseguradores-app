@@ -447,7 +447,7 @@ function informacion(sessionData) {
         i.classList.add("bi", "bi-geo-alt", "me-2");
         ciudadElement.textContent = "";
         ciudadElement.appendChild(i);
-        const textNode = document.createTextNode(ciudadSeleccionada);
+        const textNode = document.createTextNode(formatText(ciudadSeleccionada));
         ciudadElement.appendChild(textNode);
     }
 }
@@ -540,7 +540,6 @@ function renderCanales(canales) {
     container.innerHTML = "";
 
     canales.forEach((item) => {
-        //const nombre = capitalizeWords(item.nombre);
 
         container.innerHTML += `
                 <a href="${item.url}" 

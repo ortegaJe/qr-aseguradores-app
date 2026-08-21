@@ -9,10 +9,12 @@ const dictionary = {
     // Ubicaciones
     "bogota": "Bogotá",
     "cienaga - magdalena": "Ciénaga - Magdalena",
-    "cordoba": "Córdoba",
-    "sincelejo - sucre": "Sincelejo - Sucre",
     "medellin" : "Medellín",
     "jamundi" : "Jamundí",
+    "popayan" : "Popayán",
+    "monteria" : "Montería",
+    "monteria - cordoba" : "Montería - Córdoba",
+    "cali - jamundi" : "Cali - Jamundí",
 
     // Otros
 };
