@@ -270,13 +270,14 @@ body {
 
 .welcome-illustration {
 
-    margin-bottom: 2px;
+    margin-bottom: 0px;
+    margin-top: 8px;
 
 }
 
 .welcome-illustration img {
 
-    width: 220px;
+    width: 190px;
 
 }
 
@@ -401,7 +402,7 @@ body {
 
     font-style:italic;
 
-    font-size:20px;
+    font-size:18px;
 
     margin-top:8px;
 
