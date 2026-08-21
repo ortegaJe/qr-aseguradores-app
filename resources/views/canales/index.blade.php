@@ -79,7 +79,7 @@
 
                 <div class="welcome-illustration">
 
-                    <img src="{{ Storage::url('images/agent-welcome.png') }}" alt="agent-welcome">
+                    <img src="{{ Storage::url('images/agent-welcome-v2.png') }}" alt="agent-welcome">
 
                 </div>
 
