@@ -119,10 +119,9 @@ function bindBackButton() {
     const btnBack = document.getElementById("btnBack");
 
     const stepConfig = {
-        1: "bienvenida",
-        2: "asegurador",
-        3: "ciudad",
-        4: "canal",
+        1: "asegurador",
+        2: "ciudad",
+        3: "canal",
     };
 
     btnBack.addEventListener("click", () => {
@@ -325,7 +324,7 @@ function bindCanales() {
 function bindHelpBox() {
 
     const helpBoxLink = document.getElementById("helpBoxLink");
-    
+
     helpBoxLink.addEventListener("click", async () => {
 
         const evento = helpBoxLink.dataset.evento;
